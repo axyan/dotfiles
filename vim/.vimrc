@@ -37,6 +37,7 @@ highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+\n$/
 
 highlight VertSplit ctermbg=white ctermfg=black
+
 " 227: LightGoldrenrod1 #ffff5f
 highlight SLPath ctermbg=227 ctermfg=black
 " 167: IndianRed #d75f5f 
@@ -46,14 +47,22 @@ highlight SLColumnNumber ctermbg=78 ctermfg=black
 " 117: SkyBlue1 #87d7ff
 highlight SLFileType ctermbg=117 ctermfg=black
 
+highlight SLNormalMode ctermbg=white ctermfg=black
+" 209: Salmon1 #ff875f
+highlight SLInsertMode ctermbg=209 ctermfg=black
+" 69: CornflowerBlue #5f87ff
+highlight SLReplaceMode ctermbg=69 ctermfg=black
+" 145: Grey69 #afafaf
+highlight SLVisualMode ctermbg=145 ctermfg=black
+
 set laststatus=2
-set statusline=\%#SLPath#
-set statusline+=\ %F\ \%m
-set statusline+=\ %= " separate to left and right side
-set statusline+=\ %#SLLineNumber#
-set statusline+=\ LINE:\ %l/%L
-set statusline+=\ %#SLColumnNumber#
-set statusline+=\ COLUMN:\ %c%V
-set statusline+=\ %#SLFileType#
-set statusline+=\ FILETYPE:\ %Y
-set statusline+=\ " " extra space char for padding
+set statusline=
+set statusline+=%#SLNormalMode#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+set statusline+=%#SLInsertMode#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#SLReplaceMode#%{(mode()=='R')?'\ \ REPLACE\ ':''}
+set statusline+=%#SLVisualMode#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=\%#SLPath#\ %F\ \%m
+set statusline+=\%= " separate to left and right side
+set statusline+=\%#SLLineNumber#\ LINE:\ %l/%L\ "
+set statusline+=\%#SLColumnNumber#\ COLUMN:\ %c%V\ "
+set statusline+=\%#SLFileType#\ FILETYPE:\ %Y\ "
