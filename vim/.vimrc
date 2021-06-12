@@ -1,42 +1,55 @@
 syntax on
 filetype plugin indent on
+
+set backspace=indent,eol,start
+set fileformats=unix,dos,mac
 set nocompatible
+set noerrorbells
+set showmode
 
-set t_Co=256
+" Terminal coloring
+if !has('gui_running')
+  set t_Co=256
+endif
 colorscheme desert
-set number
 set background=dark
+
+" Line numbering and default line width of 80
+set nowrap
+set number
 set colorcolumn=80
+set textwidth=80
 
-"set autoindent
-"set smartindent
-
+" Default tab/indent as 2 whitespaces
 set expandtab
 set smarttab
-"set tabstop=4
-"set softtabstop=4
-"set shiftwidth=4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 
+" File specific tab/indent whitespace
 autocmd FileType css :setlocal sw=2 ts=2 sts=2
 autocmd FileType html :setlocal sw=2 ts=2 sts=2
 autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
 autocmd FileType python :setlocal sw=4 ts=4 sts=4
 
-set backspace=indent,eol,start
-
-set ignorecase
-set smartcase
+" Search
 set hlsearch
+set ignorecase
 set incsearch
+set smartcase
 
-"set ruler
-"set laststatus=2
-"set statusline=\Path:\ %f\ \ \Line:\ %l\ \ \Column:\ %c
+set showmatch
+highlight MatchParen cterm=none ctermbg=white ctermfg=yellow
 
+" Highlight trailing whitespaces
 highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+\n$/
 
-highlight VertSplit ctermbg=white ctermfg=black
+highlight VertSplit ctermbg=black ctermfg=white
+
+
+" ============================== Statusline ================================= "
 
 " 227: LightGoldrenrod1 #ffff5f
 highlight SLPath ctermbg=227 ctermfg=black
@@ -55,14 +68,21 @@ highlight SLReplaceMode ctermbg=69 ctermfg=black
 " 145: Grey69 #afafaf
 highlight SLVisualMode ctermbg=145 ctermfg=black
 
-set laststatus=2
+set laststatus=2 " Always display statusline
 set statusline=
 set statusline+=%#SLNormalMode#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 set statusline+=%#SLInsertMode#%{(mode()=='i')?'\ \ INSERT\ ':''}
 set statusline+=%#SLReplaceMode#%{(mode()=='R')?'\ \ REPLACE\ ':''}
 set statusline+=%#SLVisualMode#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=%< " truncating starts here
 set statusline+=\%#SLPath#\ %F\ \%m
 set statusline+=\%= " separate to left and right side
 set statusline+=\%#SLLineNumber#\ LINE:\ %l/%L\ "
 set statusline+=\%#SLColumnNumber#\ COLUMN:\ %c%V\ "
 set statusline+=\%#SLFileType#\ FILETYPE:\ %Y\ "
+
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
