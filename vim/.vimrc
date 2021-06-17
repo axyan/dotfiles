@@ -78,10 +78,10 @@ set statusline+=%< " truncating starts here
 set statusline+=\%#SLPath#\ %F\ \%m
 set statusline+=\%= " separate to left and right side
 set statusline+=\%#SLLineNumber#\ LINE:\ %l/%L\ "
-set statusline+=\%#SLColumnNumber#\ COLUMN:\ %c%V\ "
-set statusline+=\%#SLFileType#\ FILETYPE:\ %Y\ "
+set statusline+=\%#SLColumnNumber#\ COL:\ %c%V\ "
+set statusline+=\%#SLFileType#\ %Y\ "
 
-
+" Mapping for split movement
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
