@@ -3,4 +3,7 @@
 [color]
 	ui = auto
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
+[user]
+  name = NAME
+  email = EMAIL
