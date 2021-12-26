@@ -1,0 +1,253 @@
+window:
+  dimensions:
+    columns: 140
+    lines: 38
+  padding:
+    x: 10
+    y: 10
+  decorations: none
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+background_opacity: 0.95
+
+font:
+  normal:
+    family: monospace
+    style: Regular
+
+# Colors (Gruvbox dark)
+#colors:
+#  # Default colors
+#  primary:
+#    # hard contrast: background = '0x1d2021'
+#    background: '0x282828'
+#    # soft contrast: background = '0x32302f'
+#    foreground: '0xebdbb2'
+#
+#  # Normal colors
+#  normal:
+#    black:   '0x282828'
+#    red:     '0xcc241d'
+#    green:   '0x98971a'
+#    yellow:  '0xd79921'
+#    blue:    '0x458588'
+#    magenta: '0xb16286'
+#    cyan:    '0x689d6a'
+#    white:   '0xa89984'
+#
+#  # Bright colors
+#  bright:
+#    black:   '0x928374'
+#    red:     '0xfb4934'
+#    green:   '0xb8bb26'
+#    yellow:  '0xfabd2f'
+#    blue:    '0x83a598'
+#    magenta: '0xd3869b'
+#    cyan:    '0x8ec07c'
+#    white:   '0xebdbb2'
+
+# Colors (Tokyo Night)
+# Source: https://github.com/zatchheems/tokyo-night-alacritty-theme
+#colors:
+#  # Default colors
+#  primary:
+#    background: '0x1a1b26'
+#    foreground: '0xa9b1d6'
+#
+#  # Normal colors
+#  normal:
+#    black:   '0x32344a'
+#    red:     '0xf7768e'
+#    green:   '0x9ece6a'
+#    yellow:  '0xe0af68'
+#    blue:    '0x7aa2f7'
+#    magenta: '0xad8ee6'
+#    cyan:    '0x449dab'
+#    white:   '0x787c99'
+#
+#  # Bright colors
+#  bright:
+#    black:   '0x444b6a'
+#    red:     '0xff7a93'
+#    green:   '0xb9f27c'
+#    yellow:  '0xff9e64'
+#    blue:    '0x7da6ff'
+#    magenta: '0xbb9af7'
+#    cyan:    '0x0db9d7'
+#    white:   '0xacb0d0'
+
+# XTerm's default colors
+#colors:
+#  # Default colors
+#  primary:
+#    background: '0x000000'
+#    foreground: '0xffffff'
+#  # Normal colors
+#  normal:
+#    black:   '0x000000'
+#    red:     '0xcd0000'
+#    green:   '0x00cd00'
+#    yellow:  '0xcdcd00'
+#    blue:    '0x0000ee'
+#    magenta: '0xcd00cd'
+#    cyan:    '0x00cdcd'
+#    white:   '0xe5e5e5'
+#
+#  # Bright colors
+#  bright:
+#    black:   '0x7f7f7f'
+#    red:     '0xff0000'
+#    green:   '0x00ff00'
+#    yellow:  '0xffff00'
+#    blue:    '0x5c5cff'
+#    magenta: '0xff00ff'
+#    cyan:    '0x00ffff'
+#    white:   '0xffffff'
+
+# Colors (Ayu Dark)
+colors:
+  # Default colors
+  primary:
+    background: '0x0f1419'
+    foreground: '0xe6e1cf'
+
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0xf34a4a'
+    green:   '0xbae67e'
+    yellow:  '0xffee99'
+    blue:    '0x73d0ff'
+    magenta: '0xd4bfff'
+    cyan:    '0x83CEC6'
+    white:   '0xf2f2f2'
+
+  # Bright colors
+  bright:
+    black:   '0x737d87'
+    red:     '0xff3333'
+    green:   '0xc2d94c'
+    yellow:  '0xe7c547'
+    blue:    '0x59c2ff'
+    magenta: '0xb77ee0'
+    cyan:    '0x5ccfe6'
+    white:   '0xffffff'
+
+# Nord
+#colors:
+#  primary:
+#    background: '#2e3440'
+#    foreground: '#d8dee9'
+#    dim_foreground: '#a5abb6'
+#  cursor:
+#    text: '#2e3440'
+#    cursor: '#d8dee9'
+#  vi_mode_cursor:
+#    text: '#2e3440'
+#    cursor: '#d8dee9'
+#  selection:
+#    text: CellForeground
+#    background: '#4c566a'
+#  search:
+#    matches:
+#      foreground: CellBackground
+#      background: '#88c0d0'
+#    bar:
+#      background: '#434c5e'
+#      foreground: '#d8dee9'
+#  normal:
+#    black: '#3b4252'
+#    red: '#bf616a'
+#    green: '#a3be8c'
+#    yellow: '#ebcb8b'
+#    blue: '#81a1c1'
+#    magenta: '#b48ead'
+#    cyan: '#88c0d0'
+#    white: '#e5e9f0'
+#  bright:
+#    black: '#4c566a'
+#    red: '#bf616a'
+#    green: '#a3be8c'
+#    yellow: '#ebcb8b'
+#    blue: '#81a1c1'
+#    magenta: '#b48ead'
+#    cyan: '#8fbcbb'
+#    white: '#eceff4'
+#  dim:
+#    black: '#373e4d'
+#    red: '#94545d'
+#    green: '#809575'
+#    yellow: '#b29e75'
+#    blue: '#68809a'
+#    magenta: '#8c738c'
+#    cyan: '#6d96a5'
+#    white: '#aeb3bb'
+
+# One Dark
+#colors:
+#  # Default colors
+#  primary:
+#    background: '0x1e2127'
+#    foreground: '0xabb2bf'
+#
+#    # Bright and dim foreground colors
+#    #
+#    # The dimmed foreground color is calculated automatically if it is not present.
+#    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+#    # is `false`, the normal foreground color will be used.
+#    #dim_foreground: '0x9a9a9a'
+#    bright_foreground: '0xe6efff'
+#
+#  # Cursor colors
+#  #
+#  # Colors which should be used to draw the terminal cursor. If these are unset,
+#  # the cursor color will be the inverse of the cell color.
+#  #cursor:
+#  #  text: '0x000000'
+#  #  cursor: '0xffffff'
+#
+#  # Normal colors
+#  normal:
+#    black:   '0x1e2127'
+#    red:     '0xe06c75'
+#    green:   '0x98c379'
+#    yellow:  '0xd19a66'
+#    blue:    '0x61afef'
+#    magenta: '0xc678dd'
+#    cyan:    '0x56b6c2'
+#    white:   '0x828791'
+#
+#  # Bright colors
+#  bright:
+#    black:   '0x5c6370'
+#    red:     '0xe06c75'
+#    green:   '0x98c379'
+#    yellow:  '0xd19a66'
+#    blue:    '0x61afef'
+#    magenta: '0xc678dd'
+#    cyan:    '0x56b6c2'
+#    white:   '0xe6efff'
+#
+#  # Dim colors
+#  #
+#  # If the dim colors are not set, they will be calculated automatically based
+#  # on the `normal` colors.
+#  dim:
+#    black:   '0x1e2127'
+#    red:     '0xe06c75'
+#    green:   '0x98c379'
+#    yellow:  '0xd19a66'
+#    blue:    '0x61afef'
+#    magenta: '0xc678dd'
+#    cyan:    '0x56b6c2'
+#    white:   '0x828791'
+#
+#  # Indexed Colors
+#  #
+#  # The indexed colors include all colors from 16 to 256.
+#  # When these are not set, they're filled with sensible defaults.
+#  #indexed_colors:
+#  #  - { index: 16, color: '0x000000' }
