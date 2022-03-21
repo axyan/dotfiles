@@ -1,56 +1,58 @@
 syntax on
 filetype plugin indent on
 
-set backspace=indent,eol,start
+set encoding=utf-8
 set fileformats=unix,dos,mac
-set nocompatible
-set noerrorbells
+set hidden
 set showmode
 
-" Terminal coloring
-if !has('gui_running')
-  set t_Co=256
-endif
-" colorscheme desert
-set background=dark
+set nobackup
+set nowritebackup
+set noswapfile
+set nocompatible
+set noerrorbells
 
-" ALACRITTY
-" set termguicolors
-" colorscheme desert
+set background=dark
 highlight Comment cterm=italic gui=italic
 
-" Line numbering and default line width of 80
-set nowrap
+" Line number column, sign column, and color column at 80 characters
 set number
 set colorcolumn=80
-" set textwidth=80
+set nowrap
+set signcolumn=yes
+" Make gutter same color as background for line numbers
+highlight clear signcolumn
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
 
 " Default tab/indent as 2 whitespaces
 set expandtab
-set smarttab
+set smartindent
 set shiftwidth=2
-set tabstop=2
 set softtabstop=2
+set tabstop=2
+set backspace=indent,eol,start
 
 " File specific tab/indent whitespace
-autocmd FileType css :setlocal sw=2 ts=2 sts=2
-autocmd FileType html :setlocal sw=2 ts=2 sts=2
-autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
-autocmd FileType python :setlocal sw=4 ts=4 sts=4
 autocmd FileType go :setlocal sw=4 sts=4 ts=4 noexpandtab
+autocmd FileType python :setlocal sw=4 ts=4 sts=4
 
 " Enable syntax highlighting for .env files
 autocmd BufRead,BufNewFile .env,.env.* setlocal ft=env syn=sh
 
 " Search
-set hlsearch
-set ignorecase
 set incsearch
-set smartcase
+set nohlsearch
+"set ignorecase
+"set smartcase
 
 " Highlight matching parenthesis/brackets/curly brackets
 set showmatch
-highlight MatchParen cterm=none ctermbg=white ctermfg=yellow
+highlight MatchParen cterm=underline ctermbg=none ctermfg=none
 
 " Highlight trailing whitespaces
 highlight ExtraWhitespace ctermbg=red
@@ -58,6 +60,8 @@ match ExtraWhitespace /\s\+\n$/
 
 highlight VertSplit ctermbg=black ctermfg=white
 
+" Re-source .tmux.conf on each new save
+autocmd BufWritePost .tmux.conf execute ':silent !tmux source-file ~/.tmux.conf'
 
 " ============================== Statusline ================================= "
 
@@ -98,18 +102,11 @@ function! GitBranch()
   return trim(system("git -C " . expand("%:h") . " branch --show-current 2> /dev/null"))
 endfunction
 
-" Use GitBranch() instead to get updated branch whenever statusline changes
-"augroup status_line_git_branch
-"  autocmd!
-"  autocmd BufWinEnter,BufEnter * let b:git_branch_name = GitBranch()
-"  autocmd BufEnter * let b:git_branch = len(b:git_branch_name) > 0 ? ' ' . b:git_branch_name : "NONE"
-"augroup END
-
 set laststatus=2 " Always display statusline
 set statusline=
 set statusline+=%#SLMode#%{StatusLineMode()}
 set statusline+=\%#SLGitBranch#\ \ %{GitBranch()}\ "
-set statusline+=%< " truncating starts here
+set statusline+=%< " truncating starts here at path
 set statusline+=\%#SLPath#\ %F\ %m\ %r "
 set statusline+=\%= " separate to left and right side
 set statusline+=\%#SLLineNumber#\ LINE:\ %l/%L\ "
@@ -151,20 +148,8 @@ hi CocErrorFloat guifg=#000000 guibg=#FFFFFF
 hi CocWarningFloat guifg=#000000 guibg=#FFFFFF
 hi CocHintFloat guifg=#000000 guibg=#FFFFFF
 
-
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
-set encoding=utf-8
-
-" TextEdit might fail if hidden is not set.
-set hidden
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
 " Give more space for displaying messages.
-set cmdheight=2
+"set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -172,10 +157,6 @@ set updatetime=50
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=number
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
